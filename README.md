@@ -130,3 +130,5 @@ You’re welcome to use external libraries/packages necessary to build/run your 
 
 For styling, please feel free to use what you’re most comfortable with. We work with Styled Components, but we’re happy to see submissions in vanilla CSS, Sass/Less or similar if you'd rather add those. Our one ask here is that you do not use design component libraries such as Material Design or Base Web, as we’d like to see your skills.
 Feel free to be as creative as you like with the UI!
+
+The back end uses a framework called Finale to create the API. If you are not familiar with it, it might be helpful to have a look at its documentation: https://www.npmjs.com/package/finale-rest

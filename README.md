@@ -1,6 +1,6 @@
 # Code Challenge
 
-Senior Software Engineer Code Challenge - 2021
+Full stack Software Engineer Code Challenge
 
 ## Overview
 

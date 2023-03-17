@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import BackgroundImage from "./../assets/space.jpg";
 
 export const Page = styled.div`
@@ -12,12 +12,12 @@ export const Page = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; 
+  justify-content: space-between;
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 40px;
 `;
 
-const styledComponents = {Page, Wrapper};
+const styledComponents = { Page, Wrapper };
 
 export default styledComponents;

@@ -54,9 +54,10 @@ cp default.env .env
 yarn install
 docker-compose up
 ```
+
 This will run the backend on [http://localhost:3000](http://localhost:3000/).
 
-When making changes use docker-compose up --build to refresh.
+When making changes use `docker-compose up --build` to refresh.
 
 ```
 cd frontend
@@ -66,67 +67,58 @@ yarn run start
 
 This will run the frontend on [http://localhost:5000](http://localhost:5000/)
 
-With newer versions of node, you might get a ERR_OSSL_EVP_UNSUPPORTED error. In this case, use: NODE_OPTIONS=--openssl-legacy-provider yarn start instead.
-
+With newer versions of node, you might get a `ERR_OSSL_EVP_UNSUPPORTED` error. In this case, use: `NODE_OPTIONS=--openssl-legacy-provider yarn start` instead.
 
 You will need to have both front end and back end running in order to properly access the functionality.
 
-
-----
-
-Alternatively, you can compose the containers to get both the `frontend` and `backend` services running:
-
-```sh
-docker-compose up
-```
-
-You should now be able to access:
-- The frontend on [http://localhost:5000](http://localhost:5000/)
-- The backend on [http://localhost:3000](http://localhost:3000/)
-
-In order to stop the services:
+In order to stop the docker service, run:
 
 ```sh
 docker-compose down
 ```
 
-If you need to run each project separately, please, follow the instructions on the `README` files on the `frontend` or `backend` folder.
+---
 
-### Front end Subtasks example
-
-We would like you to implement:
-
-- Pagination:
-  - Description:
-    We want to display a max of 10 cards per page, and have a way that users can navigate between pages to see further cards.
-
-    In `Home.jsx`, we make an API call that fetches 10 characters. This uses a state object called `currentPage` to determine what page we fetch from the API. The API response returns the total count of characters, the link for the next page of the API and an array of 'character' objects that we use to populate the cards.
-    This file also uses a component called `Pagination.jsx`.
-    For this task, we'd like you to work on the pagination so that:
-    - There is a button displayed for every page (10 character cards per page)
-    - Clicking on a button updates `currentPage` and displays the character cards for that page
-
-
-### Back end Subtasks example
+### Front end Subtasks
 
 We would like you to implement:
 
-- Authorisation with API key coming on the x-api-key request header:
-  - Description: The frontend currently makes calls to the backend using an API key but the backend is not validating it.
-  - To be implemented in the file: backend/src/user/milestones/authorisation.js
+- [ ] We want to display a max of 10 cards per page, and have a way that users can navigate between pages to see further cards.
+      In `Home.jsx`, we make an API call that fetches 10 characters. This uses a state object called `currentPage` to determine what page we fetch from the API. The API response returns the total count of characters, the link for the next page of the API and an array of `character` objects that we use to populate the cards.
+      This file also uses a component called `Pagination.jsx`.
+
+  - [ ] There is a button displayed for every page (10 character cards per page)
+  - [ ] Clicking on a button updates `currentPage` and displays the character cards for that page
+
+- [ ] We want to allow users to "favourite" certain characters.
+      By default, all cards in the "view all" page appear to be added to favourites, but this does not represent the user's actual favourites.
+      For this task, we would like you to use the data you have available about the user to mark whether a card has been added to favourites or not.
+
+### Back end Subtasks
+
+We would like you to implement:
+
+- [ ] Authorisation with the API key coming from `x-api-key` in the request headers. The frontend currently makes calls to the backend using an API key but the backend is not validating it. To be implemented in `backend/src/user/milestones/authorisation.js`
+
+- [ ] Logging in the authorisation milestone: a new feature that allows us to:
+  - [ ] Capture the:
+    - [ ] IP of the user
+    - [ ] Timestamp of the request in milliseconds
+    - [ ] User agent
+  - [ ] Append it to the end of a log file in `backend/src/logs/request.log` as comma separated values on a new line
+  - [ ] Carry on with the request even if the above steps fail
+
+**Note:** to debug the above task, you will need to connect to the container using `docker exec -it <container-id> sh`. You can get the container ID using `docker ps` 
 
 ## Constraints
 
 When working on this as a pairing exercise, we'd like you to implement as much as you can in the time that we have. It's most important to us that we can see your thought process and how you approach the problem. Please feel free to Google syntax, add console logs where helpful, commit as you see fit and narrate your thought process as you go.
 
-
 We give you this repository in advance so you can get the project set up. Please do feel free to read through them and have a look at the code to familiarise yourself if you want to, but we would prefer that you do not work on the tasks outside of the pairing session. We want to be mindful of your time, but it's also easier for us to see your approach if we do it together.
-
-
 
 ### Suggestions
 
-You’re welcome to use external libraries/packages necessary to build/run your project (ie. things like React, Vue, StyledComponents, Babel etc), but we would prefer that the logical requirements are done yourself, such as fetching the data, cleaning it up etc. We don’t expect to see production ready code, but we do want to see how you tackle the problem. 
+You’re welcome to use external libraries/packages necessary to build/run your project (ie. things like React, Vue, StyledComponents, Babel etc), but we would prefer that the logical requirements are done yourself, such as fetching the data, cleaning it up etc. We don’t expect to see production ready code, but we do want to see how you tackle the problem.
 
 For styling, please feel free to use what you’re most comfortable with. We work with Styled Components, but we’re happy to see submissions in vanilla CSS, Sass/Less or similar if you'd rather add those. Our one ask here is that you do not use design component libraries such as Material Design or Base Web, as we’d like to see your skills.
 Feel free to be as creative as you like with the UI!

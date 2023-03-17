@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A RESTful API to handle user data",
   "author": "Apolitical Group Limited <engineering@apolitical.co>",
   "main": "index.js",

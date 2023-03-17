@@ -1,13 +1,12 @@
-// @flow
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BackgroundImage from "./assets/space.jpg";
-import { getFilms, fetchUser } from './api';
-import Home from './Home.jsx';
-import Favourites from './Favourites.jsx';
-import LoadingImage from './LoadingImage';
-import Header from './Header';
+import { getFilms, fetchUser } from "./api";
+import Home from "./Home.jsx";
+import Favourites from "./Favourites.jsx";
+import LoadingImage from "./LoadingImage";
+import Header from "./Header";
 
 const Page = styled.div`
   background-image: url(${BackgroundImage});
@@ -29,20 +28,19 @@ const EntryPoint = () => {
     const filmList = await getFilms();
     filmList && setFilms(filmList.results);
     setIsLoading(false);
-  }
+  };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-
   if (isLoading) {
     return (
-        <Page>
-          <Header />
-         <LoadingImage />
-        </Page>
-    );    
+      <Page>
+        <Header />
+        <LoadingImage />
+      </Page>
+    );
   }
 
   return (
@@ -51,29 +49,21 @@ const EntryPoint = () => {
         <Route
           exact
           path="/"
-          render={() => (
-            <Home user={user} films={films} />
-          )}
+          render={() => <Home user={user} films={films} />}
         />
         <Route
           exact
           path="/home"
-          render={() => (
-            <Home user={user} films={films} />
-          )}
+          render={() => <Home user={user} films={films} />}
         />
         <Route
           exact
           path="/favourites"
-          render={() => (
-            <Favourites user={user} films={films} />
-          )}
+          render={() => <Favourites user={user} films={films} />}
         />
       </Switch>
     </BrowserRouter>
   );
 };
-
-
 
 export default EntryPoint;

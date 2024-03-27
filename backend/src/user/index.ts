@@ -1,22 +1,20 @@
-'use strict';
+const finale = require('finale-rest'); // No types available for this package
 
-const finale = require('finale-rest');
+import config from '../config';
+import UserModel from './model';
 
-const { UserModel } = require('./model');
 const milestones = require('./milestones');
 
 const {
   API: {
     ENDPOINTS: { USERS },
   },
-} = require('../config');
+} = config;
 
-function initialize() {
+export function initialize() {
   const userResource = finale.resource({
     model: UserModel,
     endpoints: USERS,
   });
   userResource.use(milestones);
 }
-
-module.exports = { initialize };

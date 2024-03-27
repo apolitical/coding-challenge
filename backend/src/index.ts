@@ -1,8 +1,7 @@
-'use strict';
+import { config } from 'dotenv';
+config();
 
-require('dotenv').config();
-
-const { start } = require('./src/server');
+import { start } from './server';
 
 (async function quickstart() {
   await start();

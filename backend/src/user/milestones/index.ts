@@ -1,10 +1,8 @@
-'use strict';
+import authentication from './authentication';
+import authorization from './authorization';
+import presentation from './presentation';
 
-const authorization = require('./authorization');
-const authentication = require('./authentication');
-const presentation = require('./presentation');
-
-module.exports = {
+export default {
   all: {
     auth: authorization,
   },

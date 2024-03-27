@@ -1,8 +1,6 @@
-'use strict';
-
 const { API_PORT, API_KEY, DB_USER, DB_PWD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 
-module.exports = {
+export default {
   API: {
     ENDPOINTS: {
       USERS: ['/users', '/users/:slug'],

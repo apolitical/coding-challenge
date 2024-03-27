@@ -1,36 +1,36 @@
-'use strict';
+import { describe, jest, expect, beforeEach, test } from '@jest/globals';
+import { Request, Response } from 'express';
+import { Context } from '../src/types';
+
+import authentication from '../src/user/milestones/authentication';
+import config from '../src/config';
 
 jest.mock('finale-rest', () => {
   const actual = jest.requireActual('finale-rest');
   return Object.assign({}, actual, { Errors: { BadRequestError: Error } });
 });
 
-jest.mock('finale-rest');
-jest.mock('../../config');
-
-const authentication = require('./authentication');
-
 const {
   API: {
     HEADERS: { X_SLUG },
     SLUGS: { MYSELF },
   },
-} = require('../../config');
+} = config;
 
 describe('Authentication Milestone', () => {
   const slug = 'c2VuaW9yLWNhbmRpZGF0ZQ==';
   const mockHeader = jest.fn();
 
-  let req = null;
-  let res = null;
-  let context = null;
+  let req: Request;
+  let res: Response;
+  let context: Context;
 
   beforeEach(() => {
     req = {
       params: { slug: MYSELF },
       header: mockHeader,
-    };
-    context = { continue: 'some-result' };
+    } as unknown as Request;
+    context = { continue: 'some-result' } as unknown as Context;
     mockHeader.mockReturnValue(slug);
   });
 

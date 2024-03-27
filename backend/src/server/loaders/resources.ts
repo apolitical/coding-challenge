@@ -1,20 +1,16 @@
-'use strict';
-
 const finale = require('finale-rest');
 
-const database = require('../../database');
-const user = require('../../user');
+import database from '../../database';
+import { initialize as userInitialize } from '../../user';
 
-async function load(app) {
+export async function load(app: any) {
   // Initialize Finale REST
   finale.initialize({
     app: app,
     sequelize: database,
   });
   // Define User resource
-  user.initialize();
+  userInitialize();
   // Synchronise database
   await database.sync();
 }
-
-module.exports = { load };

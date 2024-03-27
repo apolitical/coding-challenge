@@ -1,31 +1,29 @@
-'use strict';
+import { describe, jest, expect, beforeEach, test } from '@jest/globals';
+import { Request, Response } from 'express';
+import { Context } from '../src/types';
+import config from '../src/config';
+import presentation from '../src/user/milestones/presentation';
 
-const mockGet = jest.fn();
+const mockGet = jest.fn() as jest.MockedFunction<any>;
 
-jest.mock('axios', () => {
-  const actual = jest.requireActual('axios');
-  return Object.assign({}, actual, { get: mockGet });
-});
-
-jest.mock('axios');
-jest.mock('../../config');
-
-const presentation = require('./presentation');
+jest.mock('axios', () => ({
+  get: (url: string) => mockGet(url),
+}));
 
 const {
   STAR_WARS_API: {
     BASE_URL,
     ENDPOINTS: { PEOPLE },
   },
-} = require('../../config');
+} = config;
 
 describe('Presentation Milestone', () => {
   const favourites = ['1', '2'];
   const favouritesDetails = [{ name: 'name-1' }, { name: 'name-2' }];
 
-  let req = null;
-  let res = null;
-  let context = null;
+  let req: Request;
+  let res: Response;
+  let context: Context;
 
   beforeEach(() => {
     context = {

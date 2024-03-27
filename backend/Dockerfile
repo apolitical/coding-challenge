@@ -1,4 +1,4 @@
-FROM node:12.20.1-alpine3.11
+FROM node:18.19-alpine3.18
 
 # Create app directory
 WORKDIR /apolitical/backend
@@ -6,8 +6,11 @@ WORKDIR /apolitical/backend
 # Install app dependencies
 COPY package.json ./
 COPY yarn.lock ./
+COPY tsconfig.json ./
+COPY src ./src
 
-RUN yarn install --production
+RUN yarn install
+RUN yarn build
 
 # Bundle app source
 COPY . .

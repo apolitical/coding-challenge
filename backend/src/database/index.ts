@@ -1,17 +1,16 @@
-'use strict';
-
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
+import config from '../config';
 
 const {
   DB: {
     URI,
     OPTIONS: { LOGGING, RETRY },
   },
-} = require('../config');
+} = config;
 
 const database = new Sequelize(URI, {
   logging: LOGGING,
   retry: RETRY,
 });
 
-module.exports = database;
+export default database;

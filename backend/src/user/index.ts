@@ -3,7 +3,7 @@ const finale = require('finale-rest'); // No types available for this package
 import config from '../config';
 import UserModel from './model';
 
-const milestones = require('./milestones');
+import milestones from './milestones';
 
 const {
   API: {

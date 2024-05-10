@@ -3,7 +3,7 @@ import fetch from "isomorphic-fetch";
 export const fetchUser = async () => {
   let user = null;
   try {
-    const response = await fetch("http://localhost:3000/users/me", {
+    const response = await fetch("http://localhost:3000/users/senior-candidate", {
       headers: {
         "x-api-key": "maythefourthbewithyou",
         "x-slug": "c2VuaW9yLWNhbmRpZGF0ZQ==",
@@ -13,7 +13,7 @@ export const fetchUser = async () => {
       user = await response.json();
     } else {
       throw new Error(
-        "call to http://localhost:3000/users/me was unsuccessful"
+        "call to http://localhost:3000/users/senior-candidate was unsuccessful"
       );
     }
   } catch (err) {
@@ -24,7 +24,7 @@ export const fetchUser = async () => {
 
 export const updateUserFavourites = async (favourites) => {
   try {
-    const res = await fetch("http://localhost:3000/users/me", {
+    const res = await fetch("http://localhost:3000/users/senior-candidate", {
       method: "PUT",
       body: JSON.stringify({ favourites }),
       headers: {

@@ -1,35 +1,12 @@
-# Code Challenge
-
-Full stack Software Engineer Code Challenge
+# Coding Challenge
 
 ## Overview
 
 When you run the project, you should see a webpage that displays cards with information about Star Wars characters. This data is served from the [Star Wars API](https://swapi.dev/).
 
-This readme contains one example of a front end task and one example of a back end task. During the pairing exercise, you will be presented with more tasks that are similar to the examples.
-
-## Installation
-
-Clone repository:
-
-```sh
-git clone https://gitlab.com/apolitical/code-tests/full-stack-code-challenge-2023.git
-```
-
-And then:
-
-```sh
-cd full-stack-code-challenge-2023
-```
-
 ### Requirements
 
 Before jumping into the installation instructions, make use you have all the tools installed on your local machine.
-
-- [node.js][node] 12.20.1+
-- [yarn][yarn]
-- [docker][docker]
-- [docker-compose][docker-compose]
 
 [node]: https://nodejs.org/en/download/
 [yarn]: https://classic.yarnpkg.com/en/docs/install
@@ -43,8 +20,6 @@ Create a copy of `default.env` file in the root folder:
 ```sh
 cp default.env .env
 ```
-
-Customise if needed.
 
 ### Installation
 
@@ -79,42 +54,11 @@ docker-compose down
 
 ---
 
-### Front end Subtasks
-
-We would like you to implement:
-
-- [ ] We want to display a max of 10 cards per page, and have a way that users can navigate between pages to see further cards.
-      In `Home.jsx`, we make an API call that fetches 10 characters. This uses a state object called `currentPage` to determine what page we fetch from the API. The API response returns the total count of characters, the link for the next page of the API and an array of `character` objects that we use to populate the cards.
-      This file also uses a component called `Pagination.jsx`.
-
-  - [ ] There is a button displayed for every page (10 character cards per page)
-  - [ ] Clicking on a button updates `currentPage` and displays the character cards for that page
-
-- [ ] We want to allow users to "favourite" certain characters.
-      By default, all cards in the "view all" page appear to be added to favourites, but this does not represent the user's actual favourites.
-      For this task, we would like you to use the data you have available about the user to mark whether a card has been added to favourites or not.
-
-### Back end Subtasks
-
-We would like you to implement:
-
-- [ ] Authorisation with the API key coming from `x-api-key` in the request headers. The frontend currently makes calls to the backend using an API key but the backend is not validating it. To be implemented in `backend/src/user/milestones/authorisation.js`
-
-- [ ] Logging in the authorisation milestone: a new feature that allows us to:
-  - [ ] Capture the:
-    - [ ] IP of the user
-    - [ ] Timestamp of the request in milliseconds
-    - [ ] User agent
-  - [ ] Append it to the end of a log file in `backend/src/logs/request.log` as comma separated values on a new line
-  - [ ] Carry on with the request even if the above steps fail
-
-**Note:** to debug the above task, you will need to connect to the container using `docker exec -it <container-id> sh`. You can get the container ID using `docker ps` 
-
 ## Constraints
 
 When working on this as a pairing exercise, we'd like you to implement as much as you can in the time that we have. It's most important to us that we can see your thought process and how you approach the problem. Please feel free to Google syntax, add console logs where helpful, commit as you see fit and narrate your thought process as you go.
 
-We give you this repository in advance so you can get the project set up. Please do feel free to read through them and have a look at the code to familiarise yourself if you want to, but we would prefer that you do not work on the tasks outside of the pairing session. We want to be mindful of your time, but it's also easier for us to see your approach if we do it together.
+We give you this repository in advance so you can get the project set up. Please do feel free to read through them and have a look at the code to familiarise yourself if you want to. 
 
 ### Suggestions
 

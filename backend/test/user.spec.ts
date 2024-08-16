@@ -19,9 +19,9 @@ describe('Auth Milestone', () => {
   // TODO: fix this beforeAll
   beforeAll(async () => {
     database = await import('./helpers/database');
+    await database.start();
     server = await import('../src/server');
 
-    await database.start();
 
     const app = await server.start();
     agent = request.agent(app);

@@ -18,14 +18,16 @@ const {
 export default (req: Request, res: Response, context: Context) => {
   try {
     // Read the IP, user agent and timestamp
-    const ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
-    const userAgent = req.header('user-agent');
+    const ip = req.header('x-forwarded-for') || req?.connection?.remoteAddress;
+    const userAgent = req.header('User-Agent');
     const timestamp = new Date().toISOString();
     const logLine = `${ip} ${userAgent} ${timestamp}`;
 
     // If the file doesn't exist, create it
-    if (!fs.existsSync('logs/access.log')) {
-      fs.writeFileSync('logs/access.log', '');
+    if (!fs.existsSync('src/logs/access.log')) {
+      // create file
+      const stream = fs.createWriteStream('src/logs/access.log');
+      stream.end();
     }
 
     // Append to the file

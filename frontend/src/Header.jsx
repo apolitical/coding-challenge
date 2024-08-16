@@ -63,7 +63,7 @@ const Header = () => {
       <Inner>
         <LinkWrapper>
           <LinkOuter>
-            <Link href="/home">View all</Link>
+            <Link href="/frontend/src/Home">View all</Link>
           </LinkOuter>
           |
           <LinkOuter>

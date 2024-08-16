@@ -27,7 +27,6 @@ function Home({ user, films }) {
       });
   };
 
-  // FIXME: Not sure why there's two use effects here
   useEffect(() => {
     fetchCharacters();
   }, []);

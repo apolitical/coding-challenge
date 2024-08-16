@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import BackgroundImage from "./assets/space.jpg";
 import { getFilms, fetchUser } from "./api";
-import Home from "./Home.jsx";
 import Favourites from "./Favourites.jsx";
 import LoadingImage from "./LoadingImage";
 import Header from "./Header";
+import HomePage from './HomePage';
 
 const Page = styled.div`
   background-image: url(${BackgroundImage});
@@ -49,12 +49,12 @@ const EntryPoint = () => {
         <Route
           exact
           path="/"
-          render={() => <Home user={user} films={films} />}
+          render={() => <HomePage user={user} films={films} />}
         />
         <Route
           exact
           path="/home"
-          render={() => <Home user={user} films={films} />}
+          render={() => <HomePage user={user} films={films} />}
         />
         <Route
           exact

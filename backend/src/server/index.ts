@@ -5,6 +5,7 @@ import { load as loadMiddleware } from './loaders/middlewares';
 import { load as loadResources } from './loaders/resources';
 
 import config from '../config';
+
 const {
   API: { PORT },
 } = config;

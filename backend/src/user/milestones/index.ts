@@ -1,10 +1,10 @@
 import authentication from './authentication';
-import authorization from './authorization';
+import authorisation from './authorisation';
 import presentation from './presentation';
 
 export default {
   all: {
-    auth: authorization,
+    auth: authorisation,
   },
   read: {
     fetch: {

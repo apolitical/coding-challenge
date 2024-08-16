@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.pagination-button {
+  height: 40px;
+  width: 40px;
+  margin: 0px 10px;
+  border-radius: 100%;
+  background-color: black;
+  color: yellow;
+  font-size: 1.4rem;
+  box-shadow: none;
+}
+
+.active-button {
+  box-shadow: 0 0 10px 10px #fff, 0 0 10px 10px rgb(135 220 90);
+}
+
+.pagination-button:hover {
+  box-shadow: 0 0 10px 10px #fff, 0 0 10px 10px rgb(255 5 63);
+}
+
+.pagination-container {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 40px 40px 0px 0px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
+  text-align: center;
+}
+
+.pagination-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

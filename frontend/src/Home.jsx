@@ -22,11 +22,12 @@ function Home({ user, films }) {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.error("ERROR WHILE FETCHING PAGE DATA: ", err);
+        console.error(err);
         setIsLoading(false);
       });
   };
 
+  // FIXME: Not sure why there's two use effects here
   useEffect(() => {
     fetchCharacters();
   }, []);
@@ -58,7 +59,7 @@ function Home({ user, films }) {
             />
           ))}
       </Wrapper>
-      <Pagination currentPage={currentPage} />
+      <Pagination currentPage={currentPage} charCount={charCount} setCurrentPage={setCurrentPage} />
     </Page>
   );
 }

@@ -47,11 +47,13 @@ const Card = ({ character, films, user }) => {
         }
       })
       .catch((err) => {
-        console.error("ERROR WHILE FETCHING PAGE DATA: ", err);
+        console.error(err);
         setIsLoading(false);
       });
 
-    setIsFavourite(true);
+    const parts = character.url.split("/");
+    const characterNumber = parts[parts.length - 2];
+    setIsFavourite(user.favourites.includes(characterNumber));
   }, [character, user]);
 
   const { name, birth_year } = character;

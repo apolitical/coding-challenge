@@ -1,91 +1,98 @@
-# Backend
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-A RESTful API to handle user data.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-Implemented in `Node.js` with:
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-- [express](http://expressjs.com/) for Web Framework
-- [finale](https://github.com/tommybananas/finale) for REST and [milestones](https://github.com/tommybananas/finale/blob/master/docs/Milestones.md) to customize controllers
-- [sequelize](https://sequelize.org/) for ORM
-- [pg](https://github.com/brianc/node-postgres) for PostgreSQL database
+## Description
 
-## Getting Started
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-### Requirements
+## Project setup
 
-- [node.js][node] 12.20.1+
-- [yarn][yarn]
-- [docker][docker]
-- [docker-compose][docker-compose]
-
-[node]: https://nodejs.org/en/download/
-[yarn]: https://classic.yarnpkg.com/en/docs/install
-[docker]: https://docs.docker.com/install/
-[docker-compose]: https://docs.docker.com/compose/install/
-
-### Installation
-
-Install dependencies:
-
-```sh
-yarn install
+```bash
+$ yarn install
 ```
 
-Run unit tests:
+## Compile and run the project
 
-```sh
-yarn test
+```bash
+# development
+$ yarn run start
+
+# watch mode
+$ yarn run start:dev
+
+# production mode
+$ yarn run start:prod
 ```
 
-### Environment variables
+## Run tests
 
-Create a copy of `default.env` file:
+```bash
+# unit tests
+$ yarn run test
 
-```sh
-cp default.env .env
+# e2e tests
+$ yarn run test:e2e
+
+# test coverage
+$ yarn run test:cov
 ```
 
-Customise if needed.
+## Deployment
 
-### Compose the containers
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
-#### Start API
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
-Run the API locally with:
-
-```sh
-docker-compose up
+```bash
+$ yarn install -g @nestjs/mau
+$ mau deploy
 ```
 
-This should result in:
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-- API available at http://localhost:3000
-- Postgres available at http://localhost:5432
+## Resources
 
-Compose re-uses the existing Docker images. In order to rebuild it use:
+Check out a few resources that may come in handy when working with NestJS:
 
-```sh
-docker-compose up --build
-```
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-In this case, set `DB_HOST` to:
+## Support
 
-- `host.docker.internal` on MacOS
-- `172.17.0.1` on Linux
-- `10.0.75.1` on Windows
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-Auto-restart with `nodemon` in another terminal:
+## Stay in touch
 
-```sh
-docker-compose stop backend
-yarn run start:dev
-```
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-Or:
+## License
 
-```
-docker-compose up -d db
-yarn run start:dev
-```
-
-In this case, set `DB_HOST` to `localhost`
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).

@@ -4,6 +4,8 @@
 
 When you run the project, you should see a webpage that displays cards with information about Star Wars characters. This data is stored in our own internal sqllite database.
 
+Please ensure you have disabled autocompletion on your IDE. This is to promote fairness in the process and ensure that we get the greatest insight into how you work.
+
 ### Requirements
 
 Before jumping into the installation instructions, make use you have all the tools installed on your local machine.

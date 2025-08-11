@@ -3,6 +3,7 @@
 import { Character } from "@/types";
 import { CharacterCard } from "@/components/CharacterCard";
 import { useEffect, useState } from "react";
+import { CreateDialog } from "@/components/CreateDialog";
 
 export default function Home() {
   const [characters, setCharacters] = useState<
@@ -82,7 +83,10 @@ export default function Home() {
   return (
     <div className="min-h-screen p-8 sm:p-20">
       <main className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Characters</h1>
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold">Characters</h1>
+          <CreateDialog />
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {characters.map((character) => (
             <CharacterCard

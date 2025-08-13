@@ -1,12 +1,31 @@
 import { Injectable, NotImplementedException } from '@nestjs/common';
-import { OpenAI } from 'openai';
+import { ChatOpenAI } from '@langchain/openai';
+import { OpenAIEmbeddings } from '@langchain/openai';
+import { PineconeStore } from '@langchain/pinecone';
+import { Pinecone } from '@pinecone-database/pinecone';
 
 @Injectable()
 export class OpenAIService {
-  private client: OpenAI;
+  private embeddings: OpenAIEmbeddings;
+  private llm: ChatOpenAI;
+  private pinecone: Pinecone;
+  private pineconeStore: PineconeStore;
 
   constructor() {
-    this.client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    this.embeddings = new OpenAIEmbeddings({
+      apiKey: process.env.OPENAI_API_KEY || '',
+      model: 'text-embedding-3-small',
+      dimensions: 512,
+    });
+
+    this.llm = new ChatOpenAI({
+      model: 'gpt-4o-mini',
+      apiKey: process.env.OPENAI_API_KEY || '',
+    });
+
+    this.pinecone = new Pinecone({
+      apiKey: process.env.PINECONE_API_KEY || '',
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

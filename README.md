@@ -4,7 +4,7 @@
 
 When you run the project, you should see a webpage that displays cards with information about Star Wars characters. This data is stored in our own internal sqllite database.
 
-Please ensure you have disabled autocompletion on your IDE. This is to promote fairness in the process and ensure that we get the greatest insight into how you work.
+We encourage you to use AI tools in this interview as you would day to day, however please bare in mind that we are assessing your technical capabilities and expect you to explain your reasoning to best demonstrate how you work.
 
 ### Requirements
 

@@ -8,8 +8,8 @@ import { Pinecone } from '@pinecone-database/pinecone';
 export class OpenAIService {
   private embeddings: OpenAIEmbeddings;
   private llm: ChatOpenAI;
-  private pinecone: Pinecone;
-  private pineconeStore: PineconeStore;
+  private pinecone?: Pinecone;
+  private pineconeStore?: PineconeStore;
 
   constructor() {
     this.embeddings = new OpenAIEmbeddings({
@@ -23,9 +23,16 @@ export class OpenAIService {
       apiKey: process.env.OPENAI_API_KEY || '',
     });
 
-    this.pinecone = new Pinecone({
-      apiKey: process.env.PINECONE_API_KEY || '',
-    });
+    // Only initialize Pinecone if API key is provided
+    if (process.env.PINECONE_API_KEY) {
+      this.pinecone = new Pinecone({
+        apiKey: process.env.PINECONE_API_KEY,
+      });
+    }
+  }
+
+  private isPineconeAvailable(): boolean {
+    return !!this.pinecone;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
